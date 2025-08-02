@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra Productive Tips</title>
+    <style>
+        body {
+    font-family: 'Comic Sans MS', cursive;
+    background-color: #f5f5dc;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #f0e68c;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+.tip {
+    background-color: #fff8dc;
+    margin: 20px auto;
+    padding: 20px;
+    border-left: 6px solid #deb887;
+    max-width: 700px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+#video-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 2rem;
+    background-color: #ffe135;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+#video-popup {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: white;
+    border: 2px solid #444;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-content {
+    padding: 10px;
+    position: relative;
+}
+
+#close-btn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #900;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Master the Art of Quantum Time Dilatation</h1>
+        <p>Your ultimate guide to hyper-efficiency using reverse procrastination loops</p>
+    </header>
+
+    <main>
+        <section class="tip">
+            <h2>🧠 Optimize Neural Bandwidth Using Temporal Vortices</h2>
+            <p>Start each day by aligning your cognitive flux with the interdimensional frequency grid. This ensures maximum quantum throughput.</p>
+        </section>
+        <section class="tip">
+            <h2>⚡ Use Asynchronous Subconscious Alignment Protocols</h2>
+            <p>Forget to-do lists. Instead, meditate while thinking about thinking. It’s called Thoughtception™.</p>
+        </section>
+        <section class="tip">
+            <h2>💼 Enable Synergistic Omni-Centric Thoughtloops</h2>
+            <p>Every time you blink, recite your quarterly KPIs backward in your mind to reset your entrepreneurial matrix.</p>
+        </section>
+    </main>
+
+    <div id="video-icon" title="Click for wisdom">
+        🎬
+    </div>
+
+    <div id="video-popup">
+        <div class="video-content">
+            <span id="close-btn">&times;</span>
+            <iframe width="360" height="215" src="assets/5star.mp4" 
+                    title="5 Star Boys" frameborder="0" 
+                    allowfullscreen></iframe>
+            <p class="caption">5 Star Boys - Eat 5 Star, Do Nothing</p>
+        </div>
+    </div>
+
+    <script>
+      const icon = document.getElementById("video-icon");
+const popup = document.getElementById("video-popup");
+const closeBtn = document.getElementById("close-btn");
+
+icon.addEventListener("click", () => {
+    popup.style.display = "block";
+});
+
+closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+
+
+    </script>
+</body>
+</html>

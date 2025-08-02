@@ -1,28 +1,30 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
-# [HVH] 🎯
+# [HVH-Humor via Hopelessness] 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: [FOUR]
 
 ### Team Members
 
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: KAILAS - [CEAL]
+- Member 2: JEEVAN S- [CEAL]
+
 
 ### Project Description
 
-[2-3 lines about what your project does]
+We made a small project which has mainly 2 webpages, one with a Havizgod Ball catching simulator and the other with seems important but absolute weird and useless informations with a 5star button.
 
 ### The Problem (that doesn't exist)
 
 [What ridiculous problem are you solving?]
+we are trying to solve a game which can be won by catching all the balls that are dropped from the divine eternity but the bucket has some weird holes ....
 
 ### The Solution (that nobody asked for)
 
 [How are you solving it? Keep it fun!]
+we are trying to catch the almighty god level balls but we cannot have any option but just to hear what humiliations the hgp bot offers to us .. 
 
 ## Technical Details
 
@@ -30,28 +32,9 @@
 
 For Software:
 
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
-
-For Hardware:
-
-- [List main components]
-- [List specifications]
-- [List tools required]
-
-### Implementation
-
-For Software:
-
-# Installation
-
-[commands]
-
-# Run
-
-[commands]
+- html
+- css
+- Javascript
 
 ### Project Documentation
 
@@ -59,14 +42,18 @@ For Software:
 
 # Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-_Add caption explaining what this shows_
+![Screenshot1](![screenshot of the havizgod ball catch simulator](screenshots/Screenshot1.png))
+This is the sample of Havizgod ball catching simulator
 
-![Screenshot2](Add screenshot 2 here with proper name)
-_Add caption explaining what this shows_
+![Screenshot2](![screenshot of hgp bot](screenshots/scrn2.png))
+_just a sample of hgpbot humiliating the user who failed to catch balls
 
-![Screenshot3](Add screenshot 3 here with proper name)
-_Add caption explaining what this shows_
+![Screenshot3](![alt text](screenshots/screen3.png))
+_just a webpage which looks like it contains helpful content but is actually filled with useless or misleading information
+
+![Screenshot4](![alt text](screenshots/screen4.png))
+_A hidden 5star icon which plays a sigmaboy's 5star inspiration to be useless
+
 
 # Diagrams
 

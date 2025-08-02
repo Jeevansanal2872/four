@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Useless Ball Catcher</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background: linear-gradient(135deg, #3f59d1 0%, #764ba2 100%);
+      font-family: 'Arial', sans-serif;
+      color: white;
+      overflow: hidden;
+      height: 100vh;
+    }
+
+    .game-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 15px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.1);
+    }
+
+    .header {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 100;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .subtitle {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+
+    .stats {
+      background: rgba(0,0,0,0.3);
+      padding: 15px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+
+    .ball {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: url('assets/havizgod.jpg') center center / cover no-repeat;
+      box-shadow: 0 0 15px rgba(255, 161, 45, 0.5);
+      z-index: 10;
+    }
+
+    .bucket {
+      position: absolute;
+      bottom: 70px;
+      width: 120px;
+      height: 100px;
+      background: linear-gradient(to bottom, #5afe6a, #07e807);
+      border-radius: 0 0 50px 50px;
+      border: 5px solid #57cb4a;
+      cursor: pointer;
+      z-index: 20;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .hole {
+      position: absolute;
+      background: #000;
+      border-radius: 50%;
+      border: 1px solid #555;
+    }
+
+    .message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      font-weight: bold;
+      background: rgba(255, 234, 234, 0.8);
+      padding: 20px 30px;
+      border-radius: 15px;
+      text-align: center;
+      z-index: 50;
+      animation: fadeInOut 2s ease-in-out;
+      color: black;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    }
+
+    .instructions {
+      position: absolute;
+      bottom: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+
+    .falling-ball {
+      animation: fall 4s linear;
+    }
+
+    @keyframes fall {
+      from { top: -30px; }
+      to { top: 100vh; }
+    }
+
+    .escaping-ball {
+      animation: escape 1s ease-out forwards;
+    }
+
+    @keyframes escape {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(0.3) translateY(50px); opacity: 0; }
+    }
+
+    /* --- HGPBot Chat Popup Styles --- */
+    .popup {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      width: 300px;
+      height: 100%;
+      background-color: #111;
+      color: white;
+      box-shadow: -5px 0 10px rgba(0,0,0,0.4);
+      transition: right 0.4s ease;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .popup.open {
+      right: 0;
+    }
+
+    .popup-header {
+      padding: 15px;
+      background-color: #222;
+      font-size: 18px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .popup-header img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .chat-messages {
+      padding: 10px;
+      flex-grow: 1;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+
+    .bot-message {
+      background: #333;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      color: #aaa;
+    }
+
+    .close-btn:hover {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container" id="gameContainer">
+    <div class="header">
+      <div class="title">🪣HVH Ball Catcher</div>
+      <div class="subtitle">A beautifully pointless endeavor</div>
+      <div class="stats">
+        <div>Balls Dropped: <span id="ballsDropped">0</span></div>
+        <div>Balls "Caught": <span id="ballsCaught">0</span></div>
+        <div>Balls Escaped: <span id="ballsEscaped">0</span></div>
+        <div>Success Rate: <span id="successRate">0%</span> (Always 0%)</div>
+      </div>
+    </div>
+  <div style="position: absolute; top: 25px; right: 30px; z-index: 101;">
+    <a href="5star.html" class="5star">
+      <button style="background: none; border: none; cursor: pointer;">
+        <img src="assets/5star.png" alt="5 Star" style="width:58px; height:48px;">
+      </button>
+    </a>
+  </div>
+    <div class="bucket" id="bucket"></div>
+
+    <div class="instructions">
+      Move your mouse to control the bucket • Watch balls escape no matter what you do. Itz a Dare
+    </div>
+  </div>
+
+  <!-- 🤖 HGPBot Chat Popup -->
+  <div class="popup" id="rightPopup">
+    <div class="popup-header">
+      <img src="assets/hgp.png" alt="Bot Icon"/>
+      HGPBot
+      <span class="close-btn" id="closePopup">&times;</span>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Bot messages will appear here -->
+    </div>
+  </div>
+
+  <script>
+    const gameContainer = document.getElementById('gameContainer');
+    const bucket = document.getElementById('bucket');
+    const ballsDroppedSpan = document.getElementById('ballsDropped');
+    const ballsCaughtSpan = document.getElementById('ballsCaught');
+    const ballsEscapedSpan = document.getElementById('ballsEscaped');
+    const successRateSpan = document.getElementById('successRate');
+
+    const popup = document.getElementById('rightPopup');
+    const closeBtn = document.getElementById('closePopup');
+    const chatBox = document.getElementById('chatMessages');
+
+    const botMessages = [
+      "Hello, I am TOOO DISSAPPOINTED in you.",
+      "You missed 10 balls... impressive failure!",
+      "Did you even try catching them?",
+      "Next time, maybe use a bucket without holes?",
+      "Remember: I'm watching your performance 👀",
+      "Try again... or don’t. I don’t care 😌",
+      "Keep going... for no reason!",
+      "That was so bad, the balls filed a complaint… against *you*.",
+      "proud of your consistent defeat.",
+      "You know, I could catch those balls better than you.",
+      "Maybe you should just give up? 🤷‍♂️",
+      "Don't even bother trying. Everyone else is laughing at you anyway.",
+      "I can't believe you did that in public. You've ruined everything.",
+      "You know, I could catch those balls better than you.",
+      "Maybe you should just give up? 🤷‍♂️",
+      "Don't even bother trying. Everyone else is laughing at you anyway.",
+    " Wow. Even a potato with Wi-Fi could’ve done better.",
+    "Congratulations! You just unlocked: ‘Legendary Failure’ — a rank no one asked for.",
+    "You didn’t just miss the balls. You missed *life's* expectations.",
+    "Is your strategy called 'let them fall' or is this just natural talent?",
+    "You're not in the hall of fame. You’re in the lobby of shame.",
+    "Gravity helped the balls. What’s your excuse?",
+    "Even a blindfolded raccoon would've caught more.",
+    "That wasn’t a fail. That was a masterclass in disappointment.",
+    "Some play for fun, some for glory. You… play for memes.",
+    "NASA called. They said even satellites saw that disaster.",
+    "Next time, try using hands. Or at least a little dignity.",
+    "I’ve seen toddlers with more coordination. And they drool while walking.",
+    "If missing was a sport, you’d be Olympic material.",
+    "You're not bad. You're *artfully* bad. Like a Picasso of failure.",
+    "They say everyone is good at something. This just isn’t your ‘something’.",
+    "Honestly, that was inspirational — in a ‘don’t be like this’ kind of way."
+    ];
+
+    let hasShownBot = false;
+
+    closeBtn.addEventListener('click', () => {
+      popup.classList.remove('open');
+    });
+
+    let ballsDropped = 0;
+    let ballsCaught = 0;
+    let ballsEscaped = 0;
+    let bucketX = window.innerWidth / 2 - 60;
+
+    function createHoles() {
+      const holeCount = 5;
+      for (let i = 0; i < holeCount; i++) {
+        const hole = document.createElement('div');
+        hole.className = 'hole';
+        const size = Math.random() * 15 + 8;
+        hole.style.width = size + 'px';
+        hole.style.height = size + 'px';
+        hole.style.left = Math.random() * (120 - size) + 'px';
+        hole.style.top = Math.random() * (60 - size) + 'px';
+        bucket.appendChild(hole);
+      }
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      bucketX = Math.max(0, Math.min(window.innerWidth - 120, e.clientX - 60));
+      bucket.style.left = bucketX + 'px';
+    });
+
+    function createBall() {
+      const ball = document.createElement('div');
+      ball.className = 'ball falling-ball';
+      const startX = Math.random() * (window.innerWidth - 30);
+      ball.style.left = startX + 'px';
+      ball.style.top = '-30px';
+      gameContainer.appendChild(ball);
+      ballsDropped++;
+      ballsDroppedSpan.textContent = ballsDropped;
+
+      setTimeout(() => {
+        checkCollision(ball, startX);
+      }, 2800);
+
+      setTimeout(() => {
+        if (ball.parentNode) {
+          ball.remove();
+        }
+      }, 4000);
+    }
+
+    function checkCollision(ball, ballX) {
+      const bucketLeft = bucketX;
+      const bucketRight = bucketX + 120;
+
+      if (ballX >= bucketLeft && ballX <= bucketRight) {
+        ballsCaught++;
+        ballsCaughtSpan.textContent = ballsCaught;
+        showMessage("Ahhh u useless ..The bucket has holes.. it's escaping through the holes!");
+        setTimeout(() => {
+          ball.classList.add('escaping-ball');
+          ballsEscaped++;
+          ballsEscapedSpan.textContent = ballsEscaped;
+          triggerBot();
+        }, 60);
+      } else {
+        ballsEscaped++;
+        ballsEscapedSpan.textContent = ballsEscaped;
+        showMessage("Missed! ur such horrible... 🤷‍♂️");
+        triggerBot();
+      }
+
+      updateSuccessRate();
+    }
+
+    function triggerBot() {
+      if (ballsEscaped >= 10 && !hasShownBot) {
+        popup.classList.add('open');
+        showBotMessages();
+        hasShownBot = true;
+      }
+    }
+
+    function showBotMessages() {
+      let index = 0;
+      function nextMessage() {
+        if (index < botMessages.length) {
+          const msg = document.createElement('div');
+          msg.className = 'bot-message';
+          msg.textContent = botMessages[index++];
+          chatBox.appendChild(msg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+          setTimeout(nextMessage, 1500);
+        }
+      }
+      nextMessage();
+    }
+
+    function showMessage(text) {
+      const message = document.createElement('div');
+      message.className = 'message';
+      message.textContent = text;
+      gameContainer.appendChild(message);
+      setTimeout(() => message.remove(), 2000);
+    }
+
+    function updateSuccessRate() {
+      successRateSpan.textContent = '0%';
+    }
+
+    createHoles();
+    setInterval(createBall, 2000);
+    setTimeout(() => {
+      showMessage("Welcome to the game ! 🎮");
+    }, 1000);
+  </script>
+</body>
+</html>
