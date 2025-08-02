@@ -11,20 +11,19 @@
 - Team Lead: KAILAS - [CEAL]
 - Member 2: JEEVAN S- [CEAL]
 
-
 ### Project Description
 
 We made a small project which has mainly 2 webpages, one with a Havizgod Ball catching simulator and the other with seems important but absolute weird and useless informations with a 5star button.
 
 ### The Problem (that doesn't exist)
 
-[What ridiculous problem are you solving?]
+We set out to solve the non-existent problem of catching divine balls with a bucket full of holes, only to be mocked by a bot for our inevitable failure.
 we are trying to solve a game which can be won by catching all the balls that are dropped from the divine eternity but the bucket has some weird holes ....
 
 ### The Solution (that nobody asked for)
 
-[How are you solving it? Keep it fun!]
-we are trying to catch the almighty god level balls but we cannot have any option but just to hear what humiliations the hgp bot offers to us .. 
+A game where you can never win, and a productivity page that offers advice so advanced, it’s completely useless.
+we are trying to catch the almighty god level balls but we cannot have any option but just to hear what humiliations the hgp bot offers to us ..
 
 ## Technical Details
 
@@ -36,69 +35,47 @@ For Software:
 - css
 - Javascript
 
-### Project Documentation
-
-For Software:
-
 # Screenshots (Add at least 3)
 
 ![Screenshot1](![screenshot of the havizgod ball catch simulator](screenshots/Screenshot1.png))
 This is the sample of Havizgod ball catching simulator
 
 ![Screenshot2](![screenshot of hgp bot](screenshots/scrn2.png))
-_just a sample of hgpbot humiliating the user who failed to catch balls
+\_just a sample of hgpbot humiliating the user who failed to catch balls
 
 ![Screenshot3](![alt text](screenshots/screen3.png))
-_just a webpage which looks like it contains helpful content but is actually filled with useless or misleading information
+\_just a webpage which looks like it contains helpful content but is actually filled with useless or misleading information
 
 ![Screenshot4](![alt text](screenshots/screen4.png))
-_A hidden 5star icon which plays a sigmaboy's 5star inspiration to be useless
-
-
-# Diagrams
-
-![Workflow](Add your workflow/architecture diagram here)
-_Add caption explaining your workflow_
-
-For Hardware:
-
-# Schematic & Circuit
-
-![Circuit](Add your circuit diagram here)
-_Add caption explaining connections_
-
-![Schematic](Add your schematic diagram here)
-_Add caption explaining the schematic_
+\_A hidden 5star icon which plays a sigmaboy's 5star inspiration to be useless
 
 # Build Photos
 
-![Components](Add photo of your components here)
+![Components](screenshots/file.png)
 _List out all components shown_
-
-![Build](Add photos of build process here)
-_Explain the build steps_
-
-![Final](Add photo of final product here)
-_Explain the final build_
+FOUR
+│
+├── 5star.html
+├── ballcatch.html
+├── README.md
+│
+└── assets/
+├── 5star.mp4
+├── 5star.png
+├── havizgod.jpg
+├── hgp.png
+│
+└── screenshots/
+├── screen3.png
+├── screen4.png
+├── Screenshot1.png
+└── scrn2.png
 
 ### Project Demo
 
 # Video
 
-[Add your demo video link here]
-_Explain what the video demonstrates_
-
-# Additional Demos
-
-[Add any extra demo materials/links]
-
-## Team Contributions
-
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
-
----
+[<video controls src="screenshots/rec.mp4" title="hvh-humor via hopelessness demo video"></video>]
 
 Made with ❤️ at TinkerHub Useless Projects
 
