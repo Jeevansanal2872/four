@@ -43,10 +43,10 @@ This is the sample of Havizgod ball catching simulator
 ![Screenshot2](![screenshot of hgp bot](screenshots/scrn2.png))
 \_just a sample of hgpbot humiliating the user who failed to catch balls
 
-![Screenshot3](![alt text](screenshots/screen3.png))
+![Screenshot3](![misleading ](screenshots/screen3.png))
 \_just a webpage which looks like it contains helpful content but is actually filled with useless or misleading information
 
-![Screenshot4](![alt text](screenshots/screen4.png))
+![Screenshot4](![5starpage ](screenshots/screen4.png))
 \_A hidden 5star icon which plays a sigmaboy's 5star inspiration to be useless
 
 # Build Photos
